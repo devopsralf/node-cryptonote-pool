@@ -1,12 +1,10 @@
-node-cryptonote-pool
-====================
+# node-cryptonote-pool
 
 High performance Node.js (with native C addons) mining pool for CryptoNote based coins such as Bytecoin, Monero, QuazarCoin, HoneyPenny, etc..
 Comes with lightweight example front-end script which uses the pool's AJAX API.
 
-
-
 #### Table of Contents
+
 * [Features](#features)
 * [Community Support](#community--support)
 * [Pools Using This Software](#pools-using-this-software)
@@ -25,7 +23,6 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
 * [Donations](#donations)
 * [Credits](#credits)
 * [License](#license)
-
 
 #### Features
 
@@ -54,7 +51,6 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
 * An easily extendable, responsive, light-weight front-end using API to display data
 * Worker login validation (make sure miners are using proper wallet addresses for mining)
 
-
 ### Community / Support
 
 * [CryptoNote Forum](https://forum.cryptonote.org/)
@@ -64,7 +60,6 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
 * IRC (freenode)
   * Support / general discussion join #monero: https://webchat.freenode.net/?channels=#monero
   * Development discussion join #monero-dev: https://webchat.freenode.net/?channels=#monero-dev
-
 
 #### Pools Using This Software
 
@@ -76,9 +71,7 @@ Comes with lightweight example front-end script which uses the pool's AJAX API.
 
 A pool must be operational for 6 months or more before it can be added to this list.
 
-
-Usage
-===
+# Usage
 
 #### Requirements
 * Coin daemon(s) (find the coin's repo and build latest version from source)
@@ -89,18 +82,14 @@ Usage
 * Boost is required for the cryptonote-util module
   * For Ubuntu: `sudo apt-get install libboost-all-dev`
 
-
 ##### Seriously
 Those are legitimate requirements. If you use old versions of Node.js or Redis that may come with your system package manager then you will have problems. Follow the linked instructions to get the last stable versions.
-
 
 [**Redis security warning**](http://redis.io/topics/security): be sure firewall access to redis - an easy way is to
 include `bind 127.0.0.1` in your `redis.conf` file. Also it's a good idea to learn about and understand software that
 you are using - a good place to start with redis is [data persistence](http://redis.io/topics/persistence).
 
-
 #### 1) Downloading & Installing
-
 
 Clone the repository and run `npm update` for all the dependencies to be installed:
 
@@ -118,7 +107,6 @@ npm update
 
 #### 2) Configuration
 
-
 *Warning for Cyrptonote coins other than Monero:* this software may or may not work with any given cryptonote coin.
 Be wary of altcoins that change the number of minimum coin units because you will have to reconfigure several config
 values to account for those changes. Unless you're offering a bounty reward - do not open an issue asking for help
@@ -131,10 +119,10 @@ Copy the `config_example.json` file to `config.json` then overview each options 
 Explanation for each field:
 ```javascript
 /* Used for storage in redis so multiple coins can share the same redis instance. */
-"coin": "monero",
+"coin": "bitnote",
 
 /* Used for front-end display */
-"symbol": "MRO",
+"symbol": "XBN",
 
 "logging": {
 
@@ -225,8 +213,8 @@ Explanation for each field:
         "invalidPercent": 25, //What percent of invalid shares triggers ban
         "checkThreshold": 30 //Perform check when this many shares have been submitted
     },
-    /* [Warning: several reports of this feature being broken. Proposed fix needs to be tested.] 
-        Slush Mining is a reward calculation technique which disincentivizes pool hopping and rewards 
+    /* [Warning: several reports of this feature being broken. Proposed fix needs to be tested.]
+        Slush Mining is a reward calculation technique which disincentivizes pool hopping and rewards
         'loyal' miners by valuing younger shares higher than older shares. Remember adjusting the weight!
         More about it here: https://mining.bitcoin.cz/help/#!/manual/rewards */
     "slushMining": {
@@ -349,19 +337,19 @@ Variable explanations:
 var api = "http://poolhost:8117";
 
 /* Minimum units in a single coin, for Bytecoin its 100000000. */
-var coinUnits = 1000000000000;
+var coinUnits = 100000000;
 
 /* Pool server host to instruct your miners to point to.  */
 var poolHost = "cryppit.com";
 
 /* IRC Server and room used for embedded KiwiIRC chat. */
-var irc = "irc.freenode.net/#monero";
+var irc = "irc.freenode.net/#bitnote";
 
 /* Contact email address. */
 var email = "support@cryppit.com";
 
 /* Market stat display params from https://www.cryptonator.com/widget */
-var cryptonatorWidget = ["XMR-BTC", "XMR-USD", "XMR-EUR", "XMR-GBP"];
+var cryptonatorWidget = ["XBN-BTC", "XBN-USD", "XBN-EUR", "XBN-GBP"];
 
 /* Download link to cryptonote-easy-miner for Windows users. */
 var easyminerDownload = "https://github.com/zone117x/cryptonote-easy-miner/releases/";
@@ -433,6 +421,7 @@ Donations
 ---------
 * BTC: `1667jMt7NTZDaC8WXAxtMYBR8DPWCVoU4d`
 * MRO: `48Y4SoUJM5L3YXBEfNQ8bFNsvTNsqcH5Rgq8RF7BwpgvTBj2xr7CmWVanaw7L4U9MnZ4AG7U6Pn1pBhfQhFyFZ1rL1efL8z`
+* XBN: `B575kNDSxK9EgcAdCcddjsdMQ914zfy2619h7LW6JkmpbDDM9vsqnikKSZq3SjugJ5UMmhDbB2hN7GBjn1Hz12aJ52WTZLj`
 
 Credits
 ===
